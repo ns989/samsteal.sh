@@ -40,6 +40,11 @@ else
   printinfo "INFO: Got the SAM file"
 fi
 
+if test -z "$SYSTEM_FILE" || test -z "$SAM_FILE"; then
+  printinfo "Can't run samdump2. Didn't get either SAM or SYSTEM file."
+  exit
+fi
+
 # Copy the SAM and SYSTEM files to /tmp and get checksums
 if test ! -z "$SYSTEM_FILE"; then
   cp "$SYSTEM_FILE" $TMPDIR/windows_SYSTEM
