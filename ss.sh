@@ -9,6 +9,11 @@ printinfo() {
   echo "[*] $@"
 }
 
+if test $# != 1; then
+  usage
+  exit
+fi
+
 WINDOWS_DISK="$1"
 SYSTEM_FILE=""
 SAM_FILE=""
