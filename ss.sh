@@ -10,8 +10,8 @@ printinfo() {
 }
 
 if test $# != 1; then
-  usage
-  exit
+        usage
+        exit
 fi
 
 WINDOWS_DISK="$1"
@@ -34,6 +34,7 @@ else
 fi
 
 printinfo "Searching for SAM file..."
+SAM_FILE=$( find $WINDOWS_DISK -name SAM 2>/dev/null )
 if test -z "$SAM_FILE"; then
   printinfo "ERROR: Didn't find SAM file"
 else
